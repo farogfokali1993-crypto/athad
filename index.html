@@ -1,0 +1,653 @@
+<title>اتحاد العاملين في النقل والسياحة والخدمات</title>
+<meta name="description" content="الموقع التعريفي لاتحاد العاملين في النقل والسياحة والخدمات في العراق.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light only">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Tajawal:wght@400;500;700&display=swap">
+<style>
+  /* Concept: opening screen with the logo alone, then it shrinks into a yellow top bar (logo left, menu right) and the page appears. */
+  :root {
+    --bar: #FFC400;
+    --bar-ink: #1c1a14;
+    --bg: #F8F7F3;
+    --surface: #FFFFFF;
+    --fg: #1c1a14;
+    --muted: #5d5a4c;
+    --line: #E4E1D5;
+    --font-display: "Reem Kufi", "Tajawal", "Segoe UI", Tahoma, sans-serif;
+    --font-body: "Tajawal", "Segoe UI", Tahoma, Arial, sans-serif;
+    --bar-h: 64px;
+    color-scheme: only light; /* always light, ignore device/browser dark mode */
+  }
+  html { background: #F8F7F3; }
+
+  * { box-sizing: border-box; }
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+  html.intro-on { overflow: hidden; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.9;
+    direction: rtl;
+    margin: 0;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+    z-index: 41; background: linear-gradient(110deg, #F2BA19 0%, #FFD242 48%, #F5BF22 100%);
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; border-radius: 6px; }
+
+  /* ---------- top bar ---------- */
+  .bar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;
+    isolation: isolate; overflow: hidden;
+    height: var(--bar-h);
+    display: flex; align-items: center; justify-content: space-between;
+    direction: ltr; /* logo physically left, menu physically right */
+    background: linear-gradient(110deg, #F2BA19 0%, #FFD242 48%, #F5BF22 100%); color: var(--bar-ink);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    border-bottom: 1px solid rgba(28,26,20,.12);
+    box-shadow: 0 3px 12px rgba(28,26,20,.12);
+  }
+  .bar::before {
+    content: ""; position: absolute; z-index: 0; inset: -50% -50%; pointer-events: none;
+    background:
+      radial-gradient(ellipse 20% 60% at 18% 50%, rgba(90,90,90,.24), rgba(155,155,155,.24) 45%, transparent 82%),
+      radial-gradient(ellipse 23% 68% at 48% 50%, rgba(238,238,238,.5), rgba(170,170,170,.28) 42%, transparent 82%),
+      radial-gradient(ellipse 20% 60% at 78% 50%, rgba(95,95,95,.2), rgba(200,200,200,.25) 48%, transparent 82%);
+    filter: blur(3px); transform: translateX(-24%) skewX(-7deg);
+    animation: bar-wave 7.5s ease-in-out infinite alternate;
+  }
+  .bar > * { position: relative; z-index: 1; }
+  @keyframes bar-wave {
+    from { transform: translateX(-24%) skewX(-7deg); }
+    to { transform: translateX(24%) skewX(7deg); }
+  }
+  html.intro-on .bar { visibility: hidden; }
+  .brand { display: flex; align-items: center; gap: 8px; direction: ltr; min-width: 0; }
+  .brand-copy { display: flex; flex-direction: column; justify-content: center; gap: 1px; direction: rtl; line-height: 1.05; max-width: 300px; }
+  .brand-name, .brand-subtitle {
+    color: #111; font-size: 13px; font-weight: 700; white-space: normal;
+    background: linear-gradient(110deg, #111 0%, #111 34%, #fff 48%, #fff 56%, #111 70%, #111 100%);
+    background-size: 220% 100%; background-position: 100% 50%;
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    animation: brand-wave 5s ease-in-out infinite alternate;
+  }
+  .brand-subtitle { font-size: 12px; transform: translateX(-5px); }
+  @keyframes brand-wave {
+    from { background-position: 100% 50%; }
+    to { background-position: 0% 50%; }
+  }
+  .slot { height: 42px; display: flex; align-items: center; flex: none; }
+  .slot img {
+    display: block; padding: 3px; border: 1px solid rgba(28,26,20,.14); border-radius: 12px;
+    background: #fffdf5; box-shadow: 0 2px 6px rgba(28,26,20,.16); object-fit: contain;
+  }
+  .bar-actions { display: flex; align-items: center; gap: 6px; }
+  .bar-action {
+    display: inline-flex; align-items: center; justify-content: center; text-decoration: none;
+    height: 36px; padding: 0 10px; border: 1px solid rgba(28,26,20,.16); border-radius: 10px;
+    background: rgba(255,255,255,.48); box-shadow: 0 1px 3px rgba(28,26,20,.08); color: var(--bar-ink);
+    font: 700 14px/1 var(--font-body); white-space: nowrap; cursor: default;
+  }
+  .bar-action:not(:disabled) { cursor: pointer; }
+  .bar-action:not(:disabled):hover { background: rgba(255,255,255,.72); }
+  .bar-action:disabled { opacity: .8; }
+  .burger {
+    width: 46px; height: 46px; border: 0; background: transparent; color: inherit;
+    display: grid; place-items: center; cursor: pointer; border-radius: 12px;
+  }
+  .burger:hover { background: rgba(0,0,0,.08); }
+  .burger span {
+    display: block; width: 26px; height: 3px; border-radius: 2px; background: currentColor;
+    grid-area: 1 / 1; transition: transform .3s ease, opacity .2s ease;
+  }
+  .burger span:nth-child(1) { transform: translateY(-8px); }
+  .burger span:nth-child(3) { transform: translateY(8px); }
+  .burger[aria-expanded="true"] span:nth-child(1) { transform: rotate(45deg); }
+  .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .burger[aria-expanded="true"] span:nth-child(3) { transform: rotate(-45deg); }
+  @media (max-width: 520px) {
+    .brand-copy { max-width: clamp(115px, 32vw, 160px); }
+    .brand-name { font-size: 12px; }
+    .brand-subtitle { font-size: 11px; }
+  }
+  @media (max-width: 380px) {
+    .bar { padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(10px, env(safe-area-inset-right, 0px)); }
+    .brand { gap: 5px; }
+    .brand-copy { max-width: 120px; }
+    .brand-name { font-size: 11px; }
+    .brand-subtitle { font-size: 10px; }
+    .bar-actions { gap: 3px; }
+    .bar-action { padding-inline: 7px; font-size: 12px; }
+    .burger { width: 40px; height: 40px; }
+  }
+
+  /* ---------- menu drawer ---------- */
+  .scrim {
+    position: fixed; inset: 0; z-index: 30; background: rgba(10,9,5,.45);
+    opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s;
+  }
+  .scrim.open { opacity: 1; visibility: visible; }
+  .drawer {
+    position: fixed; z-index: 35; right: 0; bottom: 0;
+    top: calc(var(--bar-h) + env(safe-area-inset-top, 0px));
+    width: min(86vw, 340px);
+    background: var(--surface);
+    border-left: 1px solid var(--line);
+    padding: 20px max(24px, env(safe-area-inset-right, 0px)) 24px 24px;
+    transform: translateX(105%); visibility: hidden;
+    transition: transform .38s cubic-bezier(.2,.8,.2,1), visibility .38s;
+    overflow-y: auto;
+  }
+  .drawer.open { transform: none; visibility: visible; }
+  .drawer .label { font-size: 13px; letter-spacing: .06em; color: var(--muted); margin: 0 0 8px; }
+  .drawer ul { list-style: none; margin: 0; padding: 0; }
+  .drawer li + li { border-top: 1px solid var(--line); }
+  .drawer a {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 4px; font-size: 20px; font-weight: 500; text-decoration: none;
+  }
+  .drawer a::after {
+    content: ""; width: 9px; height: 9px; border-left: 2.5px solid var(--bar); border-bottom: 2.5px solid var(--bar);
+    transform: rotate(45deg); flex: none;
+  }
+  .drawer a:hover { color: var(--muted); }
+
+  /* ---------- intro ---------- */
+  .intro {
+    position: fixed; inset: 0; z-index: 100; background: transparent;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    display: none; place-items: center;
+  }
+  html.intro-on .intro { display: grid; }
+  .intro.leaving { display: grid; }
+  .stage { position: relative; display: grid; place-items: center; width: 280px; height: 280px; max-width: 80vw; }
+  .ring {
+    position: absolute; width: 190px; height: 190px; border-radius: 50%;
+    border: 2px solid var(--bar); opacity: 0;
+    animation: pulse 2s ease-out infinite;
+  }
+  .ring:nth-child(2) { animation-delay: .7s; }
+  .intro.leaving .ring { animation: none; opacity: 0; transition: opacity .25s; }
+  .pop {
+    position: relative; display: grid; place-items: center;
+    animation: enter 1s cubic-bezier(.2,.8,.2,1) both, float 2.4s ease-in-out 1s infinite;
+  }
+  .pop::before {
+    content: ""; position: absolute; width: 210px; height: 210px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,196,0,.38), rgba(255,196,0,0) 68%);
+    z-index: -1;
+  }
+  .logo {
+    display: block; height: min(30vh, 180px); width: auto; max-width: 72vw; object-fit: contain;
+    transform-origin: 0 0; will-change: transform;
+  }
+  @keyframes enter {
+    from { opacity: 0; transform: scale(.8) translateY(16px); filter: blur(10px); }
+    to { opacity: 1; transform: none; filter: blur(0); }
+  }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes pulse { 0% { transform: scale(.7); opacity: .55; } 100% { transform: scale(1.5); opacity: 0; } }
+
+  /* ---------- page ---------- */
+  .wrap {
+    max-width: 960px; margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  section { scroll-margin-top: calc(var(--bar-h) + 12px); padding-block: 56px; }
+  h1, h2, h3 { font-family: var(--font-body); line-height: 1.45; margin: 0; text-wrap: balance; }
+  h1 { font-size: clamp(26px, 4vw, 36px); font-weight: 700; }
+  h2 { font-size: clamp(23px, 3.5vw, 30px); font-weight: 700; margin-bottom: 20px; }
+  h3 { font-size: 19px; font-weight: 500; }
+  p { margin: 0; max-width: 66ch; color: var(--muted); font-size: 19px; }
+
+  .hero { padding-block: 72px 64px; }
+  .hero .kicker { color: var(--fg); font-weight: 700; margin-bottom: 10px; font-size: 16px; }
+  .hero h1 span { background: linear-gradient(transparent 62%, var(--bar) 62%, var(--bar) 92%, transparent 92%); }
+  .hero p { margin-top: 18px; font-size: 19px; }
+  .photo-frame {
+    position: relative; isolation: isolate; overflow: hidden;
+    width: min(840px, calc(100% - 32px)); margin: 24px auto 0; padding: 2px;
+    border-radius: 18px;
+  }
+  .photo-runner {
+    position: absolute; z-index: 2; inset: 0; width: 100%; height: 100%;
+    overflow: visible; pointer-events: none; filter: drop-shadow(0 0 3px rgba(255,196,0,.8));
+  }
+  .photo-runner rect {
+    fill: none; stroke: var(--bar); stroke-width: 1.6; stroke-linecap: round;
+    stroke-dasharray: 48 952; stroke-dashoffset: 0; pathLength: 1000;
+    vector-effect: non-scaling-stroke;
+    animation: worm-run 2.4s linear infinite;
+  }
+  .photo-frame img {
+    position: relative; z-index: 1;
+    display: block; width: 100%; max-height: min(64vh, 580px); object-fit: contain;
+    border-radius: 14px; background: var(--surface);
+  }
+  @keyframes worm-run { to { stroke-dashoffset: -1000; } }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-runner rect { animation: none; }
+    .bar::before { animation: none; }
+    .brand-name, .brand-subtitle { animation: none; background-position: 50% 50%; }
+  }
+  .btn {
+    display: inline-block; margin-top: 28px; padding: 12px 28px; border-radius: 12px;
+    background: var(--bar); color: var(--bar-ink); font-weight: 700; text-decoration: none; font-size: 18px;
+    transition: transform .2s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+
+  .services { display: grid; gap: 0; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .services > li {
+    list-style: none;
+    display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px;
+    padding: 20px 0; border-bottom: 1px solid var(--line);
+  }
+  @media (min-width: 700px) {
+    .services > li { grid-template-columns: 220px minmax(0, 1fr); gap: 24px; }
+  }
+
+  details { border-bottom: 1px solid var(--line); }
+  details:first-of-type { border-top: 1px solid var(--line); }
+  summary { cursor: pointer; padding: 16px 0; font-weight: 500; font-size: 19px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 24px; line-height: 1; }
+  details[open] summary::after { content: "\2212"; }
+  details p { padding-bottom: 16px; }
+  .faq-group + .faq-group { margin-top: 32px; }
+  .faq-group h3 { margin-bottom: 10px; font-weight: 700; }
+  .faq-answer-list { margin: 0 0 16px; padding-inline-start: 24px; color: var(--muted); font-size: 19px; }
+  .faq-answer-list li + li { margin-top: 4px; }
+
+  .contact-list { display: grid; gap: 12px; max-width: 620px; margin-top: 18px; }
+  .contact-row {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 12px 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface);
+  }
+  .contact-number { direction: ltr; unicode-bidi: embed; color: var(--fg); font-weight: 700; font-size: 19px; }
+  .whatsapp-link {
+    display: inline-flex; align-items: center; gap: 7px; flex: none;
+    padding: 9px 13px; border-radius: 10px; background: #25D366; color: #073b20;
+    font-weight: 700; font-size: 15px; text-decoration: none;
+  }
+  .whatsapp-link:hover { background: #1fbd5b; }
+
+  footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: 15px; }
+  body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
+  .bottom-nav {
+    position: fixed; z-index: 25; right: 0; bottom: 0; left: 0;
+    height: calc(60px + env(safe-area-inset-bottom, 0px));
+    display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center;
+    padding: 4px max(12px, env(safe-area-inset-left, 0px)) calc(4px + env(safe-area-inset-bottom, 0px));
+    background: var(--surface); border-top: 1px solid var(--line);
+    box-shadow: 0 -4px 18px rgba(0,0,0,.06);
+  }
+  .bottom-nav__item {
+    min-width: 0; min-height: 44px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 3px;
+    border: 0; border-radius: 12px; background: transparent; color: var(--muted);
+    font: 500 11px/1.2 var(--font-body); text-decoration: none; cursor: pointer;
+    transition: background-color .18s ease, color .18s ease;
+  }
+  .bottom-nav__item svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .bottom-nav__item.is-selected {
+    color: var(--bar-ink); background: rgba(255,196,0,.18); font-weight: 700;
+  }
+  .bottom-nav__item:active { background: rgba(255,196,0,.3); }
+  .bottom-nav__item:focus-visible { outline: 2px solid var(--bar-ink); outline-offset: 2px; }
+</style>
+
+<script>document.documentElement.classList.add('intro-on');</script>
+
+<header class="bar">
+  <div class="brand">
+    <div class="slot" id="slot"></div>
+    <div class="brand-copy">
+      <span class="brand-name">اتحاد نقابات العاملين</span>
+      <span class="brand-subtitle">في النقل والسياحة وخدماتها في العراق</span>
+    </div>
+  </div>
+  <div class="bar-actions">
+    <button class="bar-action" type="button" disabled aria-label="شكوى">شكوى</button>
+    <a class="bar-action" href="request.html" aria-label="فتح استمارة طلب">طلب</a>
+    <button class="burger" id="burger" type="button" aria-label="القائمة" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<figure class="photo-frame">
+  <img src="images/union-photo.png" alt="صورة الاتحاد">
+  <svg class="photo-runner" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <rect x="1" y="1" width="98" height="98" rx="2"></rect>
+  </svg>
+</figure>
+
+<div class="scrim" id="scrim"></div>
+<nav class="drawer" id="drawer" aria-label="أقسام الموقع">
+  <p class="label">الأقسام</p>
+  <ul>
+    <li><a href="#home" data-go="home">الرئيسية</a></li>
+    <li><a href="#about" data-go="about">من نحن</a></li>
+    <li><a href="#services" data-go="services">مجالات عملنا واختصاصنا</a></li>
+    <li><a href="#faq" data-go="faq">الأسئلة</a></li>
+    <li><a href="#union-info" data-go="union-info">التعريف بالاتحاد وطبيعته القانونية</a></li>
+    <li><a href="#contact" data-go="contact">تواصل معنا</a></li>
+  </ul>
+</nav>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="stage">
+    <span class="ring"></span><span class="ring"></span>
+    <div class="pop" id="pop">
+      <img class="logo" id="logo" alt="الشعار" src="images/الاتحاد.png">
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="hero" id="home">
+    <div class="wrap">
+      <p class="kicker">اتحاد نقابات العاملين في النقل والسياحة وخدماتها في العراق</p>
+      <h1>نحن اتحاد العاملين في <span>النقل والسياحة والخدمات في العراق</span></h1>
+      <p>يجمع الاتحاد العاملين في هذه القطاعات، ويعمل على تعزيز التعاون بينهم والتعريف بقضاياهم واحتياجاتهم.</p>
+      <a class="btn" href="#about" data-go="about">تعرّف على الاتحاد</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>من نحن</h2>
+      <p>اتحاد نقابات العاملين بالنقل والسياحة وخدماتها في العراق هو كيان نقابي ومهني رسمي يمثل المظلة الشرعية والقانونية للعاملين في قطاعات النقل البري والسياحة والخدمات المرتبطة بها في عموم محافظات العراق.</p>
+      <p>انطلقت مسيرتنا التنظيمية كـ "نقابة سائقي سيارات الأجرة"، وتطورت وتوسعت بمرور السنوات لتواكب متغيرات سوق العمل، وتضم تحت لوائها سائقي المركبات والأجرة، وعمال النقل والتوصيل، والعاملين في المرافق السياحية والفندقية.</p>
+      <p>يمارس الاتحاد مهامه وصلاحياته مستندًا إلى أحكام الدستور العراقي النافذ، وقانون التنظيم النقابي للعمال رقم 87 لسنة 2017 وتعديلاته، وبما ينسجم مع معايير العمل الدولية والاتفاقيات العربية والدولية المصادق عليها من قبل جمهورية العراق. نعمل في الاتحاد على ترسيخ العمل النقابي المؤسسي، والدفاع عن الحقوق المهنية والمعيشية للمنتسبين، وتمثيلهم أمام الجهات الحكومية والتشريعية لضمان بيئة عمل آمنة وعادلة، وتوفير الحماية الاجتماعية والتقاعدية التي تليق بعطائهم في خدمة المجتمع والاقتصاد الوطني.</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>مجالات عملنا واختصاصنا</h2>
+      <p>يمتد نطاق عمل اتحاد نقابات العاملين بالنقل والسياحة وخدماتها في العراق ليشمل تنظيم ورعاية شؤون العاملين في قطاعات حيوية واسعة، وذلك من خلال المحاور والاختصاصات التالية</p>
+      <ul class="services">
+        <li><h3>قطاع النقل البري والمركبات</h3><p>ويشمل سائقي سيارات الأجرة (التكسي)، وسائقي مركبات النقل الجماعي والخاص، والشاحنات، ونقل البضائع، إضافة إلى العاملين في تطبيقات النقل الذكي وخدمات التوصيل (الدليفري)، وكراجات النقل ومحطات الوقود وورش صيانة المركبات</p></li>
+        <li><h3>قطاع السياحة والفندقة</h3><p>ويشمل العاملين في الفنادق، والمجمعات والمنتجعات السياحية، وشركات السفر والسياحة، ومكاتب حجز التذاكر، والأدلاء السياحيين، والعاملين في تنظيم الرحلات والوفود</p></li>
+        <li><h3>قطاع الضيافة والمطاعم والكافيهات</h3><p>ويشمل كافة الكوادر العاملة في المطاعم، والكافيهات، والمقاهي، وقاعات المناسبات، ومراكز الترفيه السياحي، وخدمات التموين الغذائي</p></li>
+        <li><h3>الحماية القانونية والضمان الاجتماعي</h3><p>متابعة تطبيق قوانين العمل العراقية، وضمان شمول جميع العاملين في هذه القطاعات بالضمان الاجتماعي والتقاعدي، وتوفير الاستشارات القانونية والدفاع عن حقوقهم أمام أصحاب العمل والجهات الرسمية</p></li>
+        <li><h3>التدريب وتطوير المهارات</h3><p>إقامة الدورات التأهيلية لتطوير كفاءة السائقين والعاملين في مجال الضيافة والسياحة، والارتقاء بجودة الخدمات المقدمة للمواطنين والزوار وفق المعايير المهنية</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>الأسئلة</h2>
+      <div class="faq-group">
+        <h3>أولاً: أسئلة تطبيقات النقل الذكي</h3>
+        <details open><summary>1 التطبيقات تاخذ نسبة (عمولة) عالية من الكابتن، والأسعار مرات ما توفي وية البانزين والازدحام، شنو دور الاتحاد هنا؟</summary><p><strong>الإجابة:</strong> يتابع الاتحاد هذا الملف بشكل مستمر مع وزارة النقل وإدارات شركات النقل الذكي نعمل على إلزام هذه الشركات بتحديد سقف عادل للعمولة لا يرهق السائق، ومراجعة التسعيرة الدنيا للرحلات لتتناسب مع تكاليف الوقود، صيانة السيارة، والوقت الضائع في الازدحامات المرورية</p></details>
+        <details><summary>2 الشركة سدت حسابي (حظر نهائي أو مؤقت) بدون سبب واضح أو بسبب تقييم كيدي من راكب، شلون أرجع حقي؟</summary><p><strong>الإجابة:</strong> لا يحق لأي شركة إيقاف مصدر رزق السائق تعسفياً دون تحقيق عادل إذا كنت منتسباً للاتحاد، يمكنك تقديم شكوى عبر موقعنا مرفقة بتفاصيل الحساب، وسيتدخل القسم القانوني في الاتحاد لمخاطبة الشركة رسمياً، والاطلاع على ملابسات الحظر، والمطالبة بإعادة تفعيل حسابك إذا ثبت عدم وجود مخالفة جسيمة</p></details>
+        <details><summary>3 أشتغل بتطبيقات النقل الذكي بسيارتي الخاصة، هل أتعرض لمحاسبة المرور أو المفارز؟ وهل هوية الاتحاد تحميني؟</summary><p><strong>الإجابة:</strong> يعمل الاتحاد بالتنسيق المباشر مع مديرية المرور العامة ووزارة النقل لتقنين عمل سائقي التطبيقات الذكية حملك لهوية انتساب رسمية صادرة من الاتحاد يثبت صفتك المهنية كعامل نقل منظم، ويسهل إجراءاتك القانونية أمام الجهات المختصة ضمن الضوابط والتعليمات النافذة لتنظيم هذا القطاع</p></details>
+        <details><summary>4 إذا صار عندي حادث أو مشكلة أمنية وية راكب أثناء الرحلة، منو يوكف وياي؟</summary><p><strong>الإجابة:</strong> سلامة السائق خط أحمر في حال تعرضك لأي اعتداء أو حادث أثناء العمل، يوفر الاتحاد لك الإسناد القانوني الكامل، ويمثلك محامو الاتحاد في مراكز الشرطة والمحاكم مجاناً لضمان عدم ضياع حقك، كما نضغط على الشركات لتوفير زر طوارئ حقيقي وتأمين شامل للسائقين أثناء الرحلات</p></details>
+      </div>
+      <div class="faq-group">
+        <h3>ثانياً: حقوق سائق الأجرة (التكسي، الكيات، الباصات)</h3>
+        <details><summary>5 شنو حقوقي الأساسية كسائق أجرة بالشارع؟ وشنو اللي أستفاده من الانتساب للنقابة؟</summary><p><strong>الإجابة:</strong> بصفتك سائق أجرة منتسب للنقابة، أنت لست وحدك في الشارع حقوقك تشمل الحماية القانونية من أي تعسف، التمثيل الرسمي أمام دوائر المرور والنقل، شمولك ببرامج التقاعد والضمان الاجتماعي، بالإضافة إلى الأولوية في الحصول على التسهيلات والمبادرات الحكومية الخاصة بالسواق (مثل بطاقات الوقود أو قروض تحديث السيارات إن وجدت)</p></details>
+        <details><summary>6 آني سائق تكسي أو كية وأشتغل لحسابي الخاص، هل أگدر أطلع تقاعد من خلال الاتحاد؟</summary><p><strong>الإجابة:</strong> نعم وبكل تأكيد وفق قانون التقاعد والضمان الاجتماعي للعمال، يحق للعاملين لحسابهم الخاص (العمل الحر) ومنهم سائقي الأجرة، شمول أنفسهم بالضمان الاجتماعي يقوم الاتحاد بتزويدك بكتاب تأييد ممارسة المهنة وتسهيل إجراءات تسجيلك في دائرة التقاعد والضمان الاجتماعي، لتضمن راتباً تقاعدياً لك ولعائلتك عند الكبر أو العجز</p></details>
+        <details><summary>7 أصحاب الكراجات أو المتنفذين يفرضون علينا إتاوات أو مبالغ إضافية بالخطوط، شلون نخلص من هاي المشكلة؟</summary><p><strong>الإجابة:</strong> الاتحاد يرفض تماماً أي جباية غير قانونية خارج الضوابط الرسمية للدولة يمكنك الإبلاغ عن أي حالة ابتزاز أو فرض مبالغ غير رسمية في الكراجات عبر نافذة الشكاوى السرية في موقعنا، وسنقوم برفعها فوراً إلى الجهات الأمنية وهيئة النقل الخاص لاتخاذ الإجراءات القانونية بحق المخالفين</p></details>
+        <details><summary>8 صار عندي حادث سير مو بصوجي، وصاحب السيارة الثانية متنفذ أو يريد يضيع حقي، النقابة تتدخل؟</summary><p><strong>الإجابة:</strong> نعم، بمجرد إبلاغنا وتزويدنا بمخطط الحادث المروري، يتولى محامو الاتحاد متابعة القضية قانونياً أمام قاضي التحقيق ومحاكم البداءة لضمان حصولك على التعويض العادل عن الأضرار التي لحقت بسيارتك، ومنع أي محاولة للضغط عليك للتنازل عن حقك</p></details>
+      </div>
+      <div class="faq-group">
+        <h3>ثالثاً: أسئلة عن المخالفات، الوقود، والمستقبل المهني</h3>
+        <details><summary>9 الغرامات المرورية كلش عالية ومرات تنزل علينا غرامات واحنا نشتغل بالشارع نترزق، الاتحاد إله دور بتخفيفها؟</summary><p><strong>الإجابة:</strong> الاتحاد يطرح معاناة السائقين بشكل مستمر في الاجتماعات المشتركة مع وزارة الداخلية ومديرية المرور نطالب دائماً بتوفير مواقف نظامية مخصصة لسيارات الأجرة (مواقف تحميل وتنزيل) في الشوارع الرئيسية والأسواق، لكي لا يُجبر السائق على الوقوف الممنوع، بالإضافة إلى المطالبة بتسهيلات في تسديد الغرامات</p></details>
+        <details><summary>10 السيارة مو باسمي (مشتريها وكالة أو أشتغل بيها ضمان يومي)، أگدر أنتسب للاتحاد؟</summary><p><strong>الإجابة:</strong> نعم، الانتساب للاتحاد يرتبط بشخصك ومهنتك كسائق وليس بملكية السيارة فقط يكفي أن تقدم إجازة السوق العمومية (أو الخصوصية لسائقي التطبيقات) مع عقد الضمان أو الوكالة أو تأييد من مالك السيارة، وسيتم منحك هوية الانتساب وتتمتع بكافة الحقوق النقابية</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="union-info">
+    <div class="wrap">
+      <h2>التعريف بالاتحاد وطبيعته القانونية</h2>
+      <div class="faq-group">
+        <h3>القسم الأول: التعريف بالاتحاد وطبيعته القانونية</h3>
+        <details><summary>1 ما هو اتحاد نقابات العاملين بالنقل والسياحة؟</summary><p><strong>الإجابة:</strong> هو تنظيم نقابي مهني مستقل، يمثل المظلة الرسمية التي تجمع النقابات واللجان العمالية للعاملين في قطاعي النقل (البري، البحري، والجوي) والسياحة (الفنادق، المطاعم، شركات السفر، والمنشآت السياحية) يهدف الاتحاد إلى الدفاع عن حقوق العاملين، تحسين ظروف عملهم، وتطوير مهاراتهم المهنية</p></details>
+        <details><summary>2 ما هي الصفة القانونية للاتحاد؟ وهل هو جهة حكومية أم مستقلة؟</summary><p><strong>الإجابة:</strong> هو تنظيم نقابي مستقل يمثل العمال وليس دائرة حكومية، ولكنه يعمل ضمن الأطر القانونية والدستورية للدولة، ويخضع لقوانين العمل والتنظيم النقابي النافذة في البلاد</p></details>
+        <details><summary>3 ما هي العلاقة التي تربط الاتحاد بالدولة والوزارات المعنية؟</summary><p><strong>الإجابة:</strong> يرتبط الاتحاد بعلاقة شراكة وتعاون وتكامل مع مؤسسات الدولة، وتحديداً وزارات (النقل، العمل والشؤون الاجتماعية، والثقافة والسياحة) يشارك الاتحاد في اللجان الاستشارية، وصياغة التشريعات العمالية، وحل النزاعات، لضمان تحقيق التوازن بين مصلحة العامل، وصاحب العمل، والمصلحة العامة للدولة</p></details>
+      </div>
+      <div class="faq-group">
+        <h3>القسم الثاني: مهام الاتحاد وأهدافه</h3>
+        <details>
+          <summary>4 ما هو الدور الفعلي الذي يقدمه الاتحاد للعاملين في قطاعات النقل والسياحة؟</summary>
+          <p><strong>الإجابة:</strong> يتركز عمل الاتحاد في أربعة محاور رئيسية</p>
+          <ul class="faq-answer-list">
+            <li><strong>الحماية القانونية:</strong> تمثيل العمال أمام المحاكم العمالية ولجان فض النزاعات لضمان حقوقهم</li>
+            <li><strong>التفاوض الجماعي:</strong> إبرام عقود عمل جماعية مع الشركات والمؤسسات لتحسين الأجور والمزايا</li>
+            <li><strong>التدريب والتأهيل:</strong> إقامة دورات لتطوير مهارات السائقين، الملاحين، والعاملين في الفندقة والسياحة</li>
+            <li><strong>الرعاية الاجتماعية:</strong> السعي لتوفير برامج ضمان صحي، تقاعدي، وتكافل اجتماعي للعمال وأسرهم</li>
+          </ul>
+        </details>
+        <details><summary>5 كيف يدعم الاتحاد تطوير قطاعي النقل والسياحة في البلاد؟</summary><p><strong>الإجابة:</strong> يؤمن الاتحاد بأن العامل الماهر والمستقر هو أساس نجاح أي قطاع لذلك، نعمل على رفع كفاءة الكوادر العاملة وفق المعايير الدولية، ونقدم مقترحات للجهات الحكومية لتطوير البنية التحتية للنقل والسياحة، ومكافحة العمل غير المنظم (العمالة غير المسجلة) لحماية الاقتصاد الوطني</p></details>
+      </div>
+      <div class="faq-group">
+        <h3>القسم الثالث: الانتساب والعضوية</h3>
+        <details><summary>6 من يحق له الانتساب إلى نقابات الاتحاد؟</summary><p><strong>الإجابة:</strong> يحق لكل عامل أو موظف يعمل بصفة دائمة أو مؤقتة في أي من مجالات النقل (سائقين، فنيين، موظفي موانئ ومطارات، عمال شحن وتفريغ) أو مجالات السياحة (موظفي فنادق، مطاعم، شركات سياحة، أدلاء سياحيين) الانتساب للنقابة المختصة بمهنته والتابعة للاتحاد</p></details>
+        <details>
+          <summary>7 ما هي فوائد الحصول على هوية (بطاقة) انتساب للنقابة؟</summary>
+          <p><strong>الإجابة:</strong> تمنح بطاقة العضوية حاملها صفة قانونية معترفاً بها، وتتيح له</p>
+          <ul class="faq-answer-list">
+            <li>الحصول على استشارات وتمثيل قانوني مجاني في حال تعرضه لأي تعسف وظيفي</li>
+            <li>المشاركة في الدورات التدريبية وورش العمل التي ينظمها الاتحاد</li>
+            <li>الاستفادة من الاتفاقيات والخصومات التي يبرمها الاتحاد مع المستشفيات، المراكز الطبية، والمؤسسات الخدمية</li>
+            <li>حق الترشح والانتخاب في الهيئات النقابية</li>
+          </ul>
+        </details>
+        <details>
+          <summary>8 ما هي المستمسكات والخطوات المطلوبة للانتساب؟</summary>
+          <p><strong>الإجابة:</strong> يمكن التقديم إلكترونياً عبر هذا الموقع أو بمراجعة مقر النقابة المختصة، مع إرفاق</p>
+          <ul class="faq-answer-list">
+            <li>نسخة من البطاقة الوطنية الموحدة (أو هوية الأحوال المدنية)</li>
+            <li>بطاقة السكن</li>
+            <li>كتاب تأييد استمرار بالخدمة من جهة العمل (أو عقد عمل، أو إجازة سوق عمومية للسائقين)</li>
+            <li>صورتين شخصيتين حديثتين</li>
+          </ul>
+        </details>
+      </div>
+      <div class="faq-group">
+        <h3>القسم الرابع: الشكاوى، النزاعات، والخدمات</h3>
+        <details><summary>9 تعرضت للفصل التعسفي أو تأخير في الرواتب، كيف يمكن للاتحاد مساعدتي؟</summary><p><strong>الإجابة:</strong> يوفر الاتحاد قسماً خاصاً بالشكاوى والشؤون القانونية بمجرد تقديمك لشكوى موثقة (عبر الموقع أو حضورياً)، يتدخل محامو الاتحاد وممثلوه للتفاوض الودي مع صاحب العمل لحل المشكلة وفي حال تعذر الحل، يتولى الاتحاد رفع دعوى قضائية أمام محكمة العمل للدفاع عنك واسترداد حقوقك كاملة</p></details>
+        <details><summary>10 هل يشمل عمل الاتحاد العاملين في القطاع الخاص أم القطاع الحكومي فقط؟</summary><p><strong>الإجابة:</strong> يركز الاتحاد بشكل أساسي على حماية وتنظيم العاملين في القطاع الخاص والقطاع المختلط، بالإضافة إلى العاملين بصفة عقود أو أجور يومية في المؤسسات الحكومية التابعة لقطاعي النقل والسياحة، لضمان شمولهم بقوانين العمل والضمان الاجتماعي</p></details>
+        <details><summary>11 هل يتدخل الاتحاد في تحديد أجور النقل أو أسعار الخدمات السياحية؟</summary><p><strong>الإجابة:</strong> تحديد التسعيرات الرسمية هو من اختصاص الجهات الحكومية (مثل وزارة النقل وهيئة السياحة)، ولكن للاتحاد دور استشاري مهم حيث نشارك في اللجان المختصة لوضع تسعيرات عادلة تضمن ربحية معقولة للعامل والسائق، وفي الوقت نفسه تراعي القدرة الشرائية للمواطن</p></details>
+      </div>
+      <div class="faq-group">
+        <h3>القسم الخامس: التواصل، الشفافية، والعلاقات الدولية</h3>
+        <details><summary>12 كيف يتم تمويل الاتحاد وأنشطته؟</summary><p><strong>الإجابة:</strong> يعتمد الاتحاد في تمويله على اشتراكات الأعضاء المنتسبين، والرسوم الرمزية للخدمات والوثائق النقابية، بالإضافة إلى الأنشطة والاستثمارات النقابية التي يسمح بها القانون، وتخضع جميع حسابات الاتحاد لرقابة مالية دقيقة لضمان الشفافية</p></details>
+        <details><summary>13 هل للاتحاد علاقات مع منظمات نقابية عربية ودولية؟</summary><p><strong>الإجابة:</strong> نعم، الاتحاد عضو فاعل في الاتحادات النقابية العربية والدولية المعنية بالنقل والسياحة (مثل الاتحاد الدولي لعمال النقل ITF، والاتحاد العربي لعمال النقل) هذا التعاون يتيح لنا تبادل الخبرات، وحماية حقوق عمالنا المسافرين خارج البلاد، ومواكبة أحدث معايير العمل الدولية</p></details>
+        <details><summary>14 كيف يمكنني التواصل المباشر مع قيادة الاتحاد أو تقديم مقترح؟</summary><p><strong>الإجابة:</strong> نرحب بجميع المقترحات والاستفسارات يمكنك التواصل معنا عبر قسم تواصل معنا في هذا الموقع، أو عبر الخط الساخن المخصص للشكاوى، أو زيارة المقر العام للاتحاد خلال أوقات الدوام الرسمي</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>تواصل معنا</h2>
+      <div class="contact-list">
+        <div class="contact-row">
+          <span class="contact-number">07700544479</span>
+          <a class="whatsapp-link" href="https://wa.me/9647700544479" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب على الرقم 07700544479">واتساب</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-number">07800544479</span>
+          <a class="whatsapp-link" href="https://wa.me/9647800544479" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب على الرقم 07800544479">واتساب</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-number">07500544479</span>
+          <a class="whatsapp-link" href="https://wa.me/9647500544479" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب على الرقم 07500544479">واتساب</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">اتحاد العاملين في النقل والسياحة والخدمات في العراق</div>
+</footer>
+
+<nav class="bottom-nav" aria-label="التنقل الرئيسي">
+  <a class="bottom-nav__item is-selected" href="#home" data-go="home" aria-current="page">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7"></path></svg>
+    <span>الرئيسية</span>
+  </a>
+  <button class="bottom-nav__item" type="button" aria-label="آخر الأخبار" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h14a2 2 0 0 1 2 2v13H6a2 2 0 0 1-2-2V5ZM8 9h8M8 13h8M8 17h5M4 8H2v10a2 2 0 0 0 2 2"></path></svg>
+    <span>آخر الأخبار</span>
+  </button>
+  <button class="bottom-nav__item" type="button" aria-label="دردشة" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.3 8.3 0 0 1-4-.9L3 21l1.9-5.5a8.3 8.3 0 0 1-.9-4A8.4 8.4 0 0 1 12.5 3h.5a8.4 8.4 0 0 1 8 8v.5Z"></path></svg>
+    <span>دردشة</span>
+  </button>
+  <button class="bottom-nav__item" type="button" aria-label="الأرشيف" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18v4H3zM5 8v12h14V8M9 12h6"></path></svg>
+    <span>الأرشيف</span>
+  </button>
+  <button class="bottom-nav__item" type="button" aria-label="الإنجازات" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4ZM7 6H4v2a4 4 0 0 0 4 4M17 6h3v2a4 4 0 0 1-4 4"></path></svg>
+    <span>الإنجازات</span>
+  </button>
+</nav>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var intro = document.getElementById('intro');
+  var logo = document.getElementById('logo');
+  var slot = document.getElementById('slot');
+  var pop = document.getElementById('pop');
+  var bar = document.querySelector('.bar');
+  var DOCK_H = 42;
+
+  var FALLBACK = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">' +
+    '<circle cx="80" cy="80" r="76" fill="#1c1a14"/><circle cx="80" cy="80" r="66" fill="none" stroke="#FFC400" stroke-width="3"/>' +
+    '<path d="M80 38 L112 80 L80 122 L48 80 Z" fill="#FFC400"/></svg>');
+
+  var started = false;
+
+  function dockNow() {
+    root.classList.remove('intro-on');
+    var w = Math.round(DOCK_H * (logo.naturalWidth || 1) / (logo.naturalHeight || 1));
+    logo.style.cssText = 'height:' + DOCK_H + 'px;width:' + w + 'px';
+    slot.appendChild(logo);
+    intro.remove();
+  }
+
+  function run() {
+    if (started) return;
+    started = true;
+    if (reduce) { dockNow(); return; }
+
+    // let the opening animation play for 2 seconds, then fly the logo into the bar
+    setTimeout(function () {
+      pop.getAnimations().forEach(function (a) { a.pause(); });
+      var r = logo.getBoundingClientRect();
+      var aspect = r.width / r.height;
+      var dockW = DOCK_H * aspect;
+      slot.style.width = dockW + 'px';
+      var t = slot.getBoundingClientRect();
+      var s = DOCK_H / r.height;
+      var dx = t.left - r.left;
+      var dy = t.top - r.top;
+
+      root.classList.remove('intro-on');
+      intro.classList.add('leaving');
+      bar.animate(
+        [{ transform: 'translateY(-100%)' }, { transform: 'none' }],
+        { duration: 600, easing: 'cubic-bezier(.2,.8,.2,1)' }
+      );
+
+      var fly = logo.animate(
+        [
+          { transform: 'translate(0px,0px) scale(1) rotate(0deg)' },
+          { transform: 'translate(' + dx * .18 + 'px,' + dy * .12 + 'px) scale(.72) rotate(-5deg)', offset: .18 },
+          { transform: 'translate(' + dx * 1.03 + 'px,' + dy * 1.03 + 'px) scale(' + s * .94 + ') rotate(2deg)', offset: .82 },
+          { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + s + ') rotate(0deg)' }
+        ],
+        { duration: 750, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' }
+      );
+      fly.finished.then(function () {
+        fly.cancel();
+        logo.style.cssText = 'height:' + DOCK_H + 'px;width:' + dockW + 'px';
+        slot.appendChild(logo);
+        slot.style.width = '';
+        intro.remove();
+      });
+    }, 2000);
+  }
+
+  function useFallback() {
+    logo.onerror = null;
+    logo.src = FALLBACK;
+    if (logo.complete) run(); else logo.onload = run;
+  }
+
+  logo.onerror = useFallback;
+  logo.onload = run;
+  if (logo.complete) {
+    if (logo.naturalWidth > 0) run(); else useFallback();
+  }
+  // if the image neither loads nor fails, use the placeholder so the page never gets stuck
+  setTimeout(function () { if (!started) useFallback(); }, 2500);
+
+  /* ---------- menu ---------- */
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  var scrim = document.getElementById('scrim');
+
+  function setMenu(open) {
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    drawer.classList.toggle('open', open);
+    scrim.classList.toggle('open', open);
+  }
+  burger.addEventListener('click', function () {
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
+  });
+  scrim.addEventListener('click', function () { setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+  document.querySelectorAll('[data-go]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var el = document.getElementById(a.getAttribute('data-go'));
+      setMenu(false);
+      if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+  });
+
+  var bottomNav = document.querySelector('.bottom-nav');
+  var bottomNavItems = bottomNav.querySelectorAll('.bottom-nav__item');
+  bottomNav.addEventListener('click', function (e) {
+    var item = e.target.closest('.bottom-nav__item');
+    if (!item) return;
+    bottomNavItems.forEach(function (navItem) {
+      navItem.classList.remove('is-selected');
+      if (navItem.tagName === 'BUTTON') navItem.setAttribute('aria-pressed', 'false');
+    });
+    item.classList.add('is-selected');
+    if (item.tagName === 'BUTTON') item.setAttribute('aria-pressed', 'true');
+  });
+
+})();
+</script>

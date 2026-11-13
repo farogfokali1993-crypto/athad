@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>استمارة طلب | اتحاد نقابة العاملين بالنقل والسياحة وخدماتها في العراق</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap">
+  <style>
+    :root {
+      color-scheme: light;
+      --bar: #ffc400;
+      --bar-ink: #1c1a14;
+      --bg: #f8f7f3;
+      --surface: #fff;
+      --fg: #1c1a14;
+      --muted: #5d5a4c;
+      --line: #e4e1d5;
+      --font: "Tajawal", "Segoe UI", Tahoma, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column;
+      margin: 0; background: var(--bg); color: var(--fg);
+      font: 18px/1.7 var(--font);
+    }
+    a { color: inherit; }
+    .request-header {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      min-height: 64px; padding: 10px max(20px, env(safe-area-inset-right, 0px)) 10px max(20px, env(safe-area-inset-left, 0px));
+      background: linear-gradient(110deg, #f2ba19 0%, #ffd242 48%, #f5bf22 100%);
+      box-shadow: 0 3px 12px rgba(28,26,20,.12);
+    }
+    .request-header strong { font-size: 17px; }
+    .back-link {
+      padding: 7px 12px; border: 1px solid rgba(28,26,20,.18); border-radius: 10px;
+      background: rgba(255,255,255,.48); font-size: 14px; font-weight: 700; text-decoration: none;
+    }
+    main { flex: 1; display: grid; place-items: center; padding: 28px 16px 48px; }
+    .request-card {
+      width: min(680px, 100%); padding: clamp(22px, 5vw, 38px);
+      border: 1px solid var(--line); border-radius: 22px; background: var(--surface);
+      box-shadow: 0 14px 40px rgba(28,26,20,.08);
+    }
+    h1 { margin: 0; font-size: clamp(25px, 5vw, 34px); line-height: 1.4; }
+    .intro { margin: 8px 0 20px; color: var(--muted); font-size: 16px; }
+    .notice {
+      margin: 0 0 20px; padding: 12px 14px; border: 1px solid rgba(255,196,0,.5);
+      border-radius: 12px; background: rgba(255,196,0,.12); color: var(--fg); font-size: 15px;
+    }
+    .fields { display: grid; gap: 16px; }
+    label { display: grid; gap: 6px; font-size: 16px; font-weight: 700; }
+    input, textarea {
+      width: 100%; padding: 11px 13px; border: 1px solid var(--line); border-radius: 11px;
+      background: var(--bg); color: var(--fg); font: 400 16px/1.5 var(--font);
+    }
+    input { min-height: 48px; }
+    textarea { min-height: 132px; resize: vertical; }
+    :focus-visible { outline: 3px solid var(--fg); outline-offset: 3px; }
+    .submit-button {
+      width: 100%; min-height: 50px; margin-top: 22px; border: 0; border-radius: 12px;
+      background: var(--bar); color: var(--bar-ink); font: 700 17px var(--font);
+    }
+    .submit-button:disabled { cursor: not-allowed; opacity: .62; }
+    @media (max-width: 420px) {
+      .request-header strong { font-size: 15px; }
+      .back-link { padding-inline: 9px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="request-header">
+    <strong>اتحاد نقابة العاملين بالنقل والسياحة وخدماتها في العراق</strong>
+    <a class="back-link" href="index.html">العودة للموقع</a>
+  </header>
+  <main>
+    <section class="request-card" aria-labelledby="request-title">
+      <h1 id="request-title">استمارة طلب</h1>
+      <p class="intro">يرجى تعبئة الحقول التالية</p>
+      <p class="notice" role="status">الإرسال غير متاح حاليًا لعدم تحديد جهة تستقبل الطلبات، ولن تُحفظ البيانات</p>
+      <form>
+        <div class="fields">
+          <label>الاسم الثلاثي
+            <input type="text" name="fullName" autocomplete="name" required>
+          </label>
+          <label>رقم الهاتف (اختياري)
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel">
+          </label>
+          <label>نوع الطلب
+            <input type="text" name="requestType" required>
+          </label>
+          <label>ما هو الطلب؟
+            <textarea name="requestDetails" rows="4" required></textarea>
+          </label>
+        </div>
+        <button class="submit-button" type="button" disabled>إرسال الطلب</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
